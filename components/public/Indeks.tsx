@@ -1,12 +1,13 @@
 import Link from "next/link";
+import { BookOpen, Users, Newspaper, Trophy, Image as ImageIcon, UserPlus } from "lucide-react";
 
 const ENTRIES = [
-  { href: "/tentang",     judul: "Profil Cabang",          sub: "Visi, misi, sejarah, struktur organisasi." },
-  { href: "/pengcab",     judul: "Pengurus Cabang",        sub: "27 pengcab kota & kabupaten Jawa Barat." },
-  { href: "/berita",      judul: "Berita & Pengumuman",    sub: "Prestasi, kegiatan, edukasi, pengumuman resmi." },
-  { href: "/turnamen",    judul: "Jadwal Turnamen",        sub: "Turnamen mendatang, hasil, arsip pertandingan." },
-  { href: "/galeri",      judul: "Galeri",                 sub: "Dokumentasi event & kegiatan komunitas." },
-  { href: "/pendaftaran", judul: "Pendaftaran Atlet",      sub: "Formulir CROOT — calon recruit baru." },
+  { href: "/tentang",     icon: BookOpen,  judul: "Profil Cabang",          sub: "Visi, misi, sejarah, struktur organisasi." },
+  { href: "/pengcab",     icon: Users,     judul: "Pengurus Cabang",        sub: "27 pengcab kota & kabupaten Jawa Barat." },
+  { href: "/berita",      icon: Newspaper, judul: "Berita & Pengumuman",    sub: "Prestasi, kegiatan, edukasi, pengumuman resmi." },
+  { href: "/turnamen",    icon: Trophy,    judul: "Jadwal Turnamen",        sub: "Turnamen mendatang, hasil, arsip pertandingan." },
+  { href: "/galeri",      icon: ImageIcon, judul: "Galeri",                 sub: "Dokumentasi event & kegiatan komunitas." },
+  { href: "/pendaftaran", icon: UserPlus,  judul: "Pendaftaran Atlet",      sub: "Formulir CROOT — calon recruit baru." },
 ];
 
 export function Indeks() {
@@ -25,19 +26,24 @@ export function Indeks() {
             <Link
               key={e.href}
               href={e.href}
-              className="group flex items-baseline justify-between gap-6 bg-[var(--orado-ivory)] px-6 py-8 transition hover:bg-white"
+              className="group flex items-start gap-5 bg-[var(--orado-ivory)] px-6 py-8 transition hover:bg-white"
             >
-              <div>
-                <div className="font-display text-2xl font-medium text-[var(--orado-navy)] transition group-hover:text-[var(--orado-emerald)]">
-                  {e.judul}
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--orado-navy)]/5 text-[var(--orado-navy)] transition group-hover:bg-[var(--orado-navy)] group-hover:text-[var(--orado-gold)]">
+                <e.icon className="h-5 w-5" strokeWidth={1.6} />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-baseline justify-between gap-3">
+                  <div className="font-display text-2xl font-medium text-[var(--orado-navy)] transition group-hover:text-[var(--orado-emerald)]">
+                    {e.judul}
+                  </div>
+                  <span aria-hidden="true" className="text-lg text-[var(--orado-charcoal)]/40 transition group-hover:translate-x-1 group-hover:text-[var(--orado-emerald)]">
+                    →
+                  </span>
                 </div>
                 <div className="mt-2 text-sm text-[var(--orado-charcoal)]/60">
                   {e.sub}
                 </div>
               </div>
-              <span aria-hidden="true" className="text-xl text-[var(--orado-charcoal)]/40 transition group-hover:translate-x-1 group-hover:text-[var(--orado-emerald)]">
-                →
-              </span>
             </Link>
           ))}
         </div>
