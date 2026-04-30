@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portal ORADO Jabar
 
-## Getting Started
+Portal Resmi Pengurus Provinsi Olahraga Domino Indonesia – Jawa Barat.
+Tagline: **"Memintarkan Jawa Barat, Mendunia dari Tatar Sunda"**
 
-First, run the development server:
+## Tech Stack
+
+- **Frontend + Backend:** Next.js 16 (App Router) — full-stack
+- **Database + Auth + Storage:** Supabase (PostgreSQL + Row Level Security)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Hosting:** Vercel
+- **3D animation (planned):** Spline / Three.js
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local        # isi dengan credentials Supabase
+npm run dev                        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── (public)/         # Public site
+│   ├── page.tsx              # Homepage
+│   ├── tentang/              # Tentang Kami
+│   ├── pengurus/             # Struktur organisasi
+│   ├── pengcab/              # Daftar 27 pengcab
+│   ├── berita/               # CMS berita
+│   ├── turnamen/             # Jadwal turnamen
+│   ├── galeri/               # Galeri foto/video
+│   ├── pendaftaran/          # CROOT form
+│   └── kontak/               # Kontak
+└── (admin)/admin/    # Admin panel
+    ├── login/                # Auth
+    ├── dashboard/            # Per-role dashboard
+    ├── croot/                # Approval workflow
+    ├── anggota/              # Member management
+    ├── berita/               # CMS
+    ├── turnamen/             # Tournament CRUD
+    ├── galeri/               # Album/media
+    ├── users/                # User & role
+    └── audit-log/            # Activity log
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/public/       # Public site components
+components/admin/        # Admin panel components
+components/ui/           # shadcn/ui
 
-## Learn More
+lib/
+├── site.ts              # Site config & nav
+├── supabase/            # Supabase clients (browser + server)
+└── auth/permissions.ts  # RBAC matrix (BRD §7.2)
 
-To learn more about Next.js, take a look at the following resources:
+supabase/migrations/     # SQL schema files
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roles (BRD §7.1)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Role           | Description                                                |
+|----------------|------------------------------------------------------------|
+| super_admin    | Full system access                                         |
+| ketua          | Approval final, lihat semua data                           |
+| sekretaris     | Verifikasi CROOT, kelola anggota                           |
+| humas          | Publish berita, kelola galeri                              |
+| pengcab        | Akses terbatas data anggota pengcab masing-masing          |
+| atlet          | Login, edit profil sendiri                                 |
 
-## Deploy on Vercel
+## Sprint Progress
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [x] **Sprint 1 — Foundation** (Project setup, layout, public/admin skeleton)
+- [ ] Sprint 2 — Public pages content + responsive
+- [ ] Sprint 3 — Supabase auth + RBAC enforcement
+- [ ] Sprint 4 — CMS Berita + WYSIWYG
+- [ ] Sprint 5 — CROOT form + workflow approval
+- [ ] Sprint 6 — Manajemen Anggota + nomor_anggota auto-gen
+- [ ] Sprint 7 — Turnamen + Galeri
+- [ ] Sprint 8 — 3D animation Domino Cascade
+- [ ] Sprint 9 — Polish, mobile, SEO, UAT
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Auto-deploy to Vercel on push to `main`.
+
+```bash
+git push origin main   # → Vercel webhook → auto build & deploy
+```

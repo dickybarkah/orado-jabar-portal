@@ -1,0 +1,31 @@
+-- Seed 27 Pengcab Jawa Barat (18 kabupaten + 9 kota)
+
+insert into pengcab (nama, kota_kab) values
+  ('ORADO Kota Bandung',        'Kota Bandung'),
+  ('ORADO Kota Cimahi',         'Kota Cimahi'),
+  ('ORADO Kota Bekasi',         'Kota Bekasi'),
+  ('ORADO Kota Bogor',          'Kota Bogor'),
+  ('ORADO Kota Depok',          'Kota Depok'),
+  ('ORADO Kota Sukabumi',       'Kota Sukabumi'),
+  ('ORADO Kota Cirebon',        'Kota Cirebon'),
+  ('ORADO Kota Tasikmalaya',    'Kota Tasikmalaya'),
+  ('ORADO Kota Banjar',         'Kota Banjar'),
+  ('ORADO Kabupaten Bandung',           'Kabupaten Bandung'),
+  ('ORADO Kabupaten Bandung Barat',     'Kabupaten Bandung Barat'),
+  ('ORADO Kabupaten Bekasi',            'Kabupaten Bekasi'),
+  ('ORADO Kabupaten Bogor',             'Kabupaten Bogor'),
+  ('ORADO Kabupaten Ciamis',            'Kabupaten Ciamis'),
+  ('ORADO Kabupaten Cianjur',           'Kabupaten Cianjur'),
+  ('ORADO Kabupaten Cirebon',           'Kabupaten Cirebon'),
+  ('ORADO Kabupaten Garut',             'Kabupaten Garut'),
+  ('ORADO Kabupaten Indramayu',         'Kabupaten Indramayu'),
+  ('ORADO Kabupaten Karawang',          'Kabupaten Karawang'),
+  ('ORADO Kabupaten Kuningan',          'Kabupaten Kuningan'),
+  ('ORADO Kabupaten Majalengka',        'Kabupaten Majalengka'),
+  ('ORADO Kabupaten Pangandaran',       'Kabupaten Pangandaran'),
+  ('ORADO Kabupaten Purwakarta',        'Kabupaten Purwakarta'),
+  ('ORADO Kabupaten Subang',            'Kabupaten Subang'),
+  ('ORADO Kabupaten Sukabumi',          'Kabupaten Sukabumi'),
+  ('ORADO Kabupaten Sumedang',          'Kabupaten Sumedang'),
+  ('ORADO Kabupaten Tasikmalaya',       'Kabupaten Tasikmalaya')
+on conflict (kota_kab) do nothing;
