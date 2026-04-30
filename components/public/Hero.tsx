@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Hero3DStage } from "./Hero3DStage";
+import { DominoCascade } from "./DominoCascade";
 
 export function Hero() {
   return (
@@ -44,7 +44,7 @@ export function Hero() {
         </div>
 
         <div className="mt-20 md:mt-28">
-          <Hero3DStage />
+          <DominoCascade />
         </div>
       </div>
     </section>

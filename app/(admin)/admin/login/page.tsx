@@ -1,44 +1,28 @@
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import { LoginForm } from "./LoginForm";
 
 export const metadata = { title: "Login — Admin ORADO Jabar" };
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-[80vh] items-center justify-center">
-      <Card className="w-full max-w-md p-8">
+    <div className="flex min-h-[80vh] items-center justify-center px-6">
+      <div className="w-full max-w-md rounded-3xl bg-white p-10 shadow-[0_1px_60px_-15px_rgba(15,61,92,0.15)]">
         <div className="text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md bg-[var(--orado-navy)] text-[var(--orado-gold)] font-bold">
-            OJ
+          <div className="mx-auto inline-block font-display text-2xl font-bold tracking-tight text-[var(--orado-navy)]">
+            ORADO<span className="text-[var(--orado-gold)]">.</span>Jabar
           </div>
-          <h1 className="mt-4 font-display text-2xl font-bold text-[var(--orado-navy)]">
+          <div className="mt-2 text-xs font-medium tracking-[0.18em] uppercase text-[var(--orado-charcoal)]/55">
             Admin Panel
-          </h1>
-          <p className="mt-1 text-sm text-[var(--orado-charcoal)]/70">
-            Masuk untuk mengelola Portal ORADO Jabar
-          </p>
+          </div>
         </div>
 
-        <form className="mt-8 space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="email@orado-jabar.id" disabled />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" placeholder="••••••••" disabled />
-          </div>
-          <Button className="w-full bg-[var(--orado-emerald)] text-[var(--orado-ivory)] hover:bg-[var(--orado-navy)]" disabled>
-            Login (Supabase Auth — sprint berikutnya)
-          </Button>
-        </form>
+        <div className="mt-8">
+          <LoginForm />
+        </div>
 
-        <p className="mt-6 text-center text-xs text-[var(--orado-charcoal)]/50">
-          Auth akan diaktifkan setelah Supabase project di-setup.
+        <p className="mt-8 text-center text-xs text-[var(--orado-charcoal)]/55">
+          Akun diberikan oleh Sekretariat Pengprov.
         </p>
-      </Card>
+      </div>
     </div>
   );
 }
