@@ -35,15 +35,10 @@ export function CtaPendaftaran() {
           </div>
 
           {/* Right — CTA action */}
-          <div className="flex flex-col justify-between gap-10 bg-[#0c2f48] p-10 text-[var(--orado-ivory)] md:col-span-5 md:p-14">
-            <div>
-              <div className="font-display text-7xl font-medium italic text-[var(--orado-gold)]">
-                CROOT
-              </div>
-              <div className="mt-3 text-sm text-[var(--orado-ivory)]/65">
-                Calon Recruit · Pendaftaran online untuk atlet domino se-Jawa Barat.
-              </div>
-            </div>
+          <div className="flex flex-col justify-center gap-8 bg-[#0c2f48] p-10 text-[var(--orado-ivory)] md:col-span-5 md:p-14">
+            <p className="text-base leading-relaxed text-[var(--orado-ivory)]/75">
+              Pendaftaran online untuk atlet domino se-Jawa Barat — proses verifikasi langsung oleh Sekretariat &amp; Ketua Pengprov.
+            </p>
 
             <div>
               <Link
